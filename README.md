@@ -1,9 +1,11 @@
 # unifont
 
 This repo is not a mirror of Unifont release binaries. If you need one, please visit http://unifoundry.com/unifont/index.html.
+
 The main purpose of this repo is to provide TrueType(.ttf) build of Unifont with bitmap glyphs included.
 
 ## Current Version
+
 Unifont v17.0.02
 
 ## License
