@@ -56,14 +56,18 @@ jobs:
           mv 'unifont-${{ inputs.unifont_version }}' unifont
           make -C unifont/font truetype
 
+      - name: Build bitmap glyphs for Unifont BMP TTF
+        run: |
+          fontforge -lang=ff -c 'Open($1);BitmapsAvail([16,32,48]);BitmapsRegen([16,32,48]);Generate($2, "ttf")' 'unifont/font/compiled/unifont-${{ inputs.unifont_version }}.ttf' 'unifont/font/compiled/unifont-${{ inputs.unifont_version }}-withBitmap.ttf'
+
       - name: Upload generated Unifont BMP TTF as artifact
         uses: actions/upload-artifact@65462800fd760344b1a7b4382951275a0abb4808 # v4
         with:
           name: Unifont BMP TTF
           path: unifont/font/compiled/unifont-${{ inputs.unifont_version }}.ttf
 
-      - name: Upload generated Unifont SMP TTF as artifact
+      - name: Upload generated Unifont BMP TTF with bitmap glyphs as artifact
         uses: actions/upload-artifact@v4
         with:
-          name: Unifont SMP TTF
-          path: unifont/font/compiled/unifont_upper-${{ inputs.unifont_version }}.ttf
+          name: Unifont BMP TTF With Bitmap Glyphs
+          path: unifont/font/compiled/unifont-${{ inputs.unifont_version }}-withBitmap.ttf
