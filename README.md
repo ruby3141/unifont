@@ -6,7 +6,7 @@ The main purpose of this repo is to provide TrueType(.ttf) build of Unifont with
 
 ## Current Version
 
-Unifont v17.0.02
+Unifont v17.0.03
 
 ## License
 
